@@ -39,6 +39,9 @@ Toggle Dark Mode / Light Mode using the button
 
 <img width="295" height="413" alt="image" src="https://github.com/user-attachments/assets/206382ff-9e46-4c4e-9f0b-92b86f7ae061" />
 
+
+<img width="309" height="407" alt="image" src="https://github.com/user-attachments/assets/5b3106fc-c8d9-4396-adc5-484a97a5f443" />
+
 <img width="308" height="298" alt="image" src="https://github.com/user-attachments/assets/639dc20b-c38c-4e11-8136-a57f50ca1935" />
 
 
