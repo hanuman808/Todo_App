@@ -1,0 +1,250 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+body.dark {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+/* App container */
+.todo-app {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 25px 20px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+body.dark .todo-app {
+  background: rgba(51, 51, 51, 0.6);
+  color: #f0f0f0;
+}
+
+.todo-app h1 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#themeToggle {
+  font-size: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+#themeToggle:hover {
+  transform: rotate(20deg) scale(1.1);
+}
+
+/* Input row */
+.input-row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.input-row input,
+.input-row select,
+.input-row button {
+  flex: 1;
+  min-width: 80px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}
+
+.input-row button {
+  background: #6a5acd;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.input-row button:hover {
+  background: #483d8b;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  transition: 0.3s;
+  flex: 1;
+  min-width: 80px;
+}
+
+.filters button.active {
+  background: #6a5acd;
+  color: white;
+}
+
+.filters button:hover {
+  background: #999;
+  color: white;
+}
+
+/* Task list */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f8f8;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 8px;
+  transition: 0.3s;
+  animation: fadeIn 0.3s ease;
+  flex-wrap: wrap;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body.dark ul li {
+  background: #555;
+  color: white;
+}
+
+ul li.completed .task-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+/* Priority colors */
+ul li.low { border-left: 5px solid green; }
+ul li.medium { border-left: 5px solid orange; }
+ul li.high { border-left: 5px solid red; }
+
+ul li::before {
+  content: attr(data-priority);
+  font-size: 11px;
+  color: white;
+  background: gray;
+  padding: 2px 6px;
+  margin-right: 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+ul li.low::before { background: green; }
+ul li.medium::before { background: orange; }
+ul li.high::before { background: red; }
+
+ul li span {
+  cursor: pointer;
+  flex: 1 1 100%;
+  margin-bottom: 5px;
+}
+
+/* Buttons inside tasks */
+ul li button {
+  margin-left: 5px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+ul li .edit { background: #ffa500; color: white; }
+ul li .edit:hover { background: #cc8400; }
+ul li .delete { background: #ff4d4d; color: white; }
+ul li .delete:hover { background: #cc0000; }
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.footer button {
+  padding: 5px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #ff4d4d;
+  color: white;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.footer button:hover { background: #cc0000; }
+
+/* Responsive Media Queries */
+@media (max-width: 600px) {
+  .input-row input, .input-row select, .input-row button {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .filters button {
+    flex: 1 1 45%;
+  }
+
+  ul li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  ul li button {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer button {
+    margin-top: 5px;
+  }
+}
